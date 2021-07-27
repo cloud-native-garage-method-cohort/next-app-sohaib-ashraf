@@ -1,0 +1,10 @@
+apiVersion: v1
+imagePullSecrets:
+- name: build-bot-dockercfg-6zdvq
+kind: ServiceAccount
+metadata:
+  name: build-bot
+secrets:
+- name: build-bot-token-vz9dl
+- name: build-bot-dockercfg-6zdvq
+- name: quay-io-credentials
