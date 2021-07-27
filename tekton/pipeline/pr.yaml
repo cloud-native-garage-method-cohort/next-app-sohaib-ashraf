@@ -1,0 +1,22 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: next-app-pipeline-
+spec:
+  serviceAccountName: build-bot
+  pipelineRef:
+    name: next-app-pipeline
+  params:
+    - name: image-repo
+      value: quay.io/sohaib_ashraf_ibm/next-app
+    - name: app-name
+      value: next-app
+  workspaces:
+  - name: pipeline-shared-data
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi

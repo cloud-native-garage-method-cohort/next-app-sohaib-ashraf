@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml
+- route.yaml
+commonLabels:
+  app: sohaib-ashraf-next-app
+  app.kubernetes.io/instance: sohaib-ashraf-next-app-instance
+  app.kubernetes.io/name: sohaib-ashraf-next-app
+images:
+- name: quay.io/upslopeio/express-sample-app
+  newName: quay.io/sohaib_ashraf_ibm/next-app
