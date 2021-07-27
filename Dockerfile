@@ -19,4 +19,5 @@ COPY . .
 EXPOSE 3000
 
 # Command to use for starting the application
+CMD [ "npm", "build" ]
 CMD ["npm", "start"]
